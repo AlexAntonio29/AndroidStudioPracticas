@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Gestor de Incentivos</string>
+    <string name="ingreso">Ingresos</string>
+    <string name="inicio">Inicio</string>
+    <string name="cuenta">Cuenta</string>
+    <string name="meta">Meta:</string>
+    <string name="ganancia">Ganancias: </string>
+    <string name="modificacion">Modificar Meta </string>
+
+
+</resources>

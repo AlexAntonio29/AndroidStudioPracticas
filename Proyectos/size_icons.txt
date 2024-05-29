@@ -1,0 +1,5 @@
+mipmap hpdi 72x72
+miomap mdpi 48x48
+mipmap xhdpi 92x92
+mipmap xxhdpi 144x144
+mipmap xxxhdpo 192x192

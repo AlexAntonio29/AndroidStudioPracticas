@@ -1,0 +1,84 @@
+
+
+
+<RelativeLayout
+    android:id="@+id/itemObject"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="80dp"
+    android:layout_marginBottom="20dp"
+    >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+
+
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_launcher_background"
+        app:imageSrc="@drawable/ic_launcher_background" />
+
+
+    <TextView
+
+        android:id="@+id/textViewItem"
+        android:layout_marginBottom="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Texto personalizado"
+
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textColor="@color/azul"
+       android:layout_toRightOf="@+id/imageView"
+
+
+
+        />
+
+    <ImageButton
+        android:id="@+id/bAfter"
+
+        android:backgroundTint="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewItem"
+        android:layout_toRightOf="@+id/imageView"
+
+        android:src="@drawable/baseline_chevron_left_24"
+        />
+    <TextView
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        android:id="@+id/tvCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewItem"
+        android:layout_toRightOf="@+id/bAfter"
+        android:text="0"
+        android:hint="0"
+        />
+    <ImageButton
+        android:src="@drawable/baseline_chevron_right_24"
+        android:id="@+id/bNext"
+        android:backgroundTint="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewItem"
+        android:layout_toRightOf="@+id/tvCount"
+        />
+
+</RelativeLayout>
+

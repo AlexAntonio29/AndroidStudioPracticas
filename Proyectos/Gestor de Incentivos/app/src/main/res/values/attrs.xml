@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomImageView">
+        <attr name="imageSrc" format="reference" />
+
+    </declare-styleable>
+
+<declare-styleable name="CustomTextView">
+<attr name="customText" format="string" />
+</declare-styleable>
+</resources>

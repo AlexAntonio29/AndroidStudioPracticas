@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gris"
+    >
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rlGanancias"
+        android:background="@color/verde"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:id="@+id/rlGananciasR2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+
+            android:layout_marginTop="10dp"
+            android:id="@+id/tvGanancia"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ganancia"
+            android:textSize="20dp"
+
+            android:layout_marginLeft="5dp"
+
+            />
+
+        <TextView
+            android:id="@+id/tvSimboloGanancia"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/gris"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@+id/tvGanancia"
+            android:text="$"
+            />
+        <TextView
+            android:id="@+id/tvGanancia_acumulada"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:hint="0"
+            android:textColorHint="@color/white"
+            android:textColor="@color/gris"
+            android:layout_toRightOf="@+id/tvSimboloGanancia"
+
+            />
+
+
+
+        <TextView
+            android:id="@+id/tvMeta"
+            android:layout_toRightOf="@id/tvGanancia_acumulada"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meta"
+            android:textSize="20dp"
+
+            android:layout_marginLeft="30dp"
+
+            />
+
+        <TextView
+            android:id="@+id/tvMetaUsuario"
+            android:textColorHint="@color/white"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_toRightOf="@+id/tvMeta"
+            android:hint="0"
+
+            android:textColor="@color/white"
+
+            />
+        <TextView
+            android:id="@+id/tvDiagonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="/"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@+id/tvMetaUsuario"
+            />
+        <TextView
+            android:id="@+id/tvMetaFinal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:textColorHint="@color/white"
+            android:layout_toRightOf="@+id/tvDiagonal"
+            android:layout_marginRight="10dp"
+            />
+
+        <Button
+            android:id="@+id/bModificar"
+            android:backgroundTint="@color/azul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/white"
+            android:layout_alignParentRight="true"
+            android:text="@string/modificacion"
+
+            />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_below="@+id/rlGanancias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rlMeta"
+        android:background="@color/azul"
+        >
+
+
+    </RelativeLayout>
+
+    <include
+        android:layout_below="@+id/rlMeta"
+        android:id="@+id/layout_secundario"
+        layout="@layout/layout_cuenta"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/llmenu_principal"
+
+        />
+
+    <LinearLayout
+        android:id="@+id/llmenu_principal"
+        android:layout_width="match_parent"
+        android:background="@color/gris_claro"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_alignParentBottom="true"
+
+        android:backgroundTint="@color/azul"
+        >
+
+        <Button
+
+            android:id="@+id/inicio"
+            android:layout_width="0dp"
+            android:text="@string/inicio"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/azul"
+            android:width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            />
+
+        <Button
+
+            android:layout_weight="1"
+            android:text="@string/ingreso"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/azul"
+            android:id="@+id/ingresos"
+            android:layout_width="0dp"
+            android:layout_height="60dp"/>
+        <Button
+
+            android:id="@+id/cuenta"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/azul"
+            android:text="@string/cuenta"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
