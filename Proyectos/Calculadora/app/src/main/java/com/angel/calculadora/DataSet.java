@@ -77,7 +77,7 @@ public class DataSet {
         return "";
     }
 
-    public String bParentesis(TextView tv) {
+    /*public String bParentesis(TextView tv) {
         String s = tv.getText().toString();
 
         String r, Data = tv.getText().toString();
@@ -103,7 +103,7 @@ char caracterAnterior = 0;
 
 
 
-    }
+    };*/
 
     public String bModulo(TextView tv) {
         String text = (String) tv.getText().toString();

@@ -6,6 +6,9 @@
     <string name="meta">Meta:</string>
     <string name="ganancia">Ganancias: </string>
     <string name="modificacion">Modificar Meta </string>
+    <string name="guardar">guardar</string>
+
+
 
 
 </resources>

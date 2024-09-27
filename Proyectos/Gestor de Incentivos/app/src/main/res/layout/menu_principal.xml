@@ -11,14 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rlGanancias"
-        android:background="@color/verde"
+        android:background="@color/azul"
         android:orientation="horizontal"
+        android:visibility="visible"
         >
 
         <LinearLayout
             android:id="@+id/rlGananciasR2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            >
+
 
         <TextView
 
@@ -53,7 +58,7 @@
             android:textSize="20dp"
             android:hint="0"
             android:textColorHint="@color/white"
-            android:textColor="@color/gris"
+            android:textColor="@color/no_meta"
             android:layout_toRightOf="@+id/tvSimboloGanancia"
 
             />
@@ -74,19 +79,20 @@
 
             />
 
-        <TextView
-            android:id="@+id/tvMetaUsuario"
-            android:textColorHint="@color/white"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_toRightOf="@+id/tvMeta"
-            android:hint="0"
+            <TextView
+                android:id="@+id/tvMetaUsuario"
+                android:layout_width="wrap_content"
 
-            android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/tvMeta"
+                android:hint="0"
+                android:textColor="@color/white"
+                android:textColorHint="@color/gris_claro"
 
-            />
+                android:textSize="20dp"
+
+                />
         <TextView
             android:id="@+id/tvDiagonal"
             android:layout_width="wrap_content"
@@ -109,19 +115,7 @@
             android:layout_marginRight="10dp"
             />
 
-        <Button
-            android:id="@+id/bModificar"
-            android:backgroundTint="@color/azul"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:textColor="@color/white"
-            android:layout_alignParentRight="true"
-            android:text="@string/modificacion"
-
-            />
-
-        </LinearLayout>
+               </LinearLayout>
 
     </LinearLayout>
     <RelativeLayout

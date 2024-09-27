@@ -1,0 +1,27 @@
+  Cursor cursor = null;
+        SQLiteDatabase db = null;
+        try {
+            db = this.getReadableDatabase();
+
+            // Consulta para obtener la última fila
+            String query = "SELECT * FROM " + TABLE_INCENTIVE_WEEK + " ORDER BY id DESC LIMIT 1";
+            cursor = db.rawQuery(query, null);
+
+            // Verificar si el cursor tiene al menos una fila
+            if (cursor != null && cursor.moveToFirst()) {
+                return cursor;  // Devuelve el cursor con la última fila
+            } else {
+                // Si no hay filas, devuelve null o un cursor vacío
+                return null;
+            }
+
+        } catch (Exception e) {
+            // Manejo de la excepción
+            e.printStackTrace();  // Imprimir el error
+            return null;  // Devuelve null en caso de error
+        } finally {
+            if (db != null) {
+                // No cerramos la base de datos aquí porque el cursor la necesita
+                // Cerrar la base de datos cuando termines de usar el cursor
+            }
+        }

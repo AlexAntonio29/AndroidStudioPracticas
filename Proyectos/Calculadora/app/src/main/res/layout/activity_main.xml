@@ -113,15 +113,14 @@
                 />-->
             <Button
                 android:id="@+id/bModulo"
-                android:text="%"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
-                android:textColor="@color/green_e"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
                 android:backgroundTint="@color/marron"
-                />
+                android:text="%"
+                android:textColor="@color/green_e" />
 
             <Button
                 android:id="@+id/bDivision"

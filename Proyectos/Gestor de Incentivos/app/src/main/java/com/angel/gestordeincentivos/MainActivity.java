@@ -12,6 +12,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DataBaseIncentiveWeek dbWeek = new DataBaseIncentiveWeek(this);
+        dbWeek.insertRowOnceAWeek();
+
+        //Toast.makeText(this,"Week: "+dbWeek.readLastRowData("benefit_u"), Toast.LENGTH_LONG).show();
+
+
         Toast.makeText(this,"Creado por Alexis Antonio", Toast.LENGTH_LONG).show();
 
         Intent intent = new Intent(this, MenuPrincipal.class);
