@@ -6,7 +6,15 @@
     >
 
 
+<LinearLayout
+    android:layout_marginRight="20sp"
+    android:layout_marginLeft="20sp"
+    android:layout_marginTop="100sp"
 
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <TextView
         android:id="@+id/tvModificarMeta"
 
@@ -22,6 +30,7 @@
 
 
     <EditText
+        
         android:layout_gravity="center_horizontal"
         android:id="@+id/etModficarMeta"
         android:layout_width="100dp"
@@ -29,18 +38,24 @@
         android:gravity="center_horizontal"
         android:inputType="number"
         android:textSize="30sp"
-        android:text="0"
+        android:hint="0"
         />
 
     <Button
+        android:id="@+id/bGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/guardar"
+        android:textColorHint="@color/white"
         android:gravity="center_horizontal"
         android:backgroundTint="@color/azul_fuerte"
 
         />
+
+
+</LinearLayout>
+
 
 
 

@@ -3,6 +3,18 @@
     <style name="Base.Theme.GestorDeIncentivos" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Configurar el color de fondo para la app -->
+        <item name="android:colorPrimaryDark">@color/azul_fuerte</item>
+        <item name="colorPrimary">@color/azul_fuerte</item>
+        <item name="colorPrimaryVariant">@color/azul_fuerte</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary brand color. -->
+
+        <item name="colorOnSecondary">@color/azul_fuerte</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
     </style>
 
     <style name="Theme.GestorDeIncentivos" parent="Base.Theme.GestorDeIncentivos" />

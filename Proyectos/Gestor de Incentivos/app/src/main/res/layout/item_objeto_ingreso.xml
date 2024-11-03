@@ -1,81 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/itemObjectIngreso"
     android:orientation="horizontal"
-    android:layout_marginTop="40dp"
-    android:layout_marginLeft="20dp"
+
+
     >
 
 
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="1">
 
-        <TableRow>
+
+
 
             <TextView
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:background="@color/white"
+
+                android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/nameIngreso"
                 android:text="NameIngreso"
 
 
-
                 />
             <TextView
-            android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:padding="5dp"
 
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/cantidadProducto"
                 android:text="Cantidad"
-                android:layout_marginLeft="20dp"
-
                 />
-            <TextView
-                android:layout_marginLeft="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/simbolo1"
-                android:text="$"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/precioUnitario"
-                android:text="PrecioUnitario"
 
 
-                />
+
             <TextView
-                android:layout_marginLeft="20dp"
+                android:background="@color/white"
+                android:padding="5dp"
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/simbolo2"
                 android:text="$"
                 />
             <TextView
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:background="@color/white"
+
+                android:padding="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/precioTotal"
                 android:text="Total"
-                android:layout_marginRight="15dp"
-
-
-
                 />
 
-        </TableRow>
 
 
-    </TableLayout>
 
 
-</LinearLayout>
+
+
+
+
+
+
+
+
+</TableRow>

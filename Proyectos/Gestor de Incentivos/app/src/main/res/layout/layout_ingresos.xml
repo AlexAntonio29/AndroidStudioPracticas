@@ -8,6 +8,11 @@
 android:background="@color/white"
 
     >
+
+
+
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,34 +20,138 @@ android:background="@color/white"
 
         >
         <TextView
+            android:id="@+id/tvMonth"
+            android:layout_margin="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingreso"
+            android:text="MES"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp"
 
             android:layout_centerHorizontal="true"
 
             />
 
+        <TextView
+            android:id="@+id/tvCantidadTotalDia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tvMonth"
+            android:text="0"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cantidad Total:"
+            android:layout_margin="10dp"
+            android:layout_toLeftOf="@id/tvCantidadTotalDia"
+            android:layout_below="@id/tvMonth"
+            />
+        <TextView
+            android:layout_below="@+id/tvMonth"
+            android:id="@+id/tvFechaIngreso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="20dp"
+            android:text="fecha"
+
+            />
+        <TextView
+            android:id="@+id/tvDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="dia"
+            android:layout_margin="5dp"
+            android:layout_below="@id/tvFechaIngreso"
+            />
+
+        <TextView
+            android:id="@+id/tvDineroTotalRenovacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tvCantidadTotalDia"
+            android:text="0"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Renovacion Dia:$ "
+           android:layout_toLeftOf="@+id/tvCantidadTotalDia"
+
+            android:layout_below="@id/tvCantidadTotalDia"
+            />
+
 
     </RelativeLayout>
+
+
+
+
+
+
 
    <ScrollView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content">
-       <LinearLayout
+       <TableLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:id="@+id/llcontenedorIngreso"
-           android:orientation="vertical"
+           android:stretchColumns="1"
+           android:background="@color/azul"
            android:layout_marginTop="40dp"
-           android:layout_marginLeft="20dp">
 
 
+          android:layout_margin="5dp"
+           >
+       </TableLayout>
 
-       </LinearLayout>
+
 
 
    </ScrollView>
+
+  <LinearLayout
+      android:layout_margin="10sp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:gravity="center"
+      android:layout_gravity="center"
+
+      >
+
+      <Button
+        android:id="@+id/bDiaAnt"
+          android:layout_centerHorizontal="true"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/white"
+          android:backgroundTint="@color/azul"
+          android:text="@string/ant_dia"
+
+
+          />
+      <Button
+          android:id="@+id/bDiaPos"
+          android:layout_centerHorizontal="true"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/white"
+          android:backgroundTint="@color/azul"
+          android:text="@string/pos_dia"
+          />
+  </LinearLayout>
+
+
 
 
 

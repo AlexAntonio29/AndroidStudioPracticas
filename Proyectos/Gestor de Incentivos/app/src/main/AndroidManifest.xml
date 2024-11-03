@@ -24,6 +24,9 @@
 
         <activity android:name=".Inicio"></activity>
         <activity android:name=".MenuPrincipal"></activity>
+        <activity android:name=".changeMeta"></activity>
+        <activity android:name=".MainCafeteria"></activity>
+
     </application>
 
 </manifest>

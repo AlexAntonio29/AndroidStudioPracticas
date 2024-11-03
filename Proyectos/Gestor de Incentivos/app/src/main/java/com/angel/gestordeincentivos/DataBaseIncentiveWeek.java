@@ -50,6 +50,9 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
     private static final String COLUMN_NO_SEMANA = "no_semana";
 
     // private static final String COLUMN_ID_SEMANA = "id_semana";
+
+    //ASIGNACION DE NUEVA VARIABLE AFILIACION
+    private static final String COLUMN_AFILIACION ="afiliacion";
     private static final String COLUMN_TOTAL = "total";
 
     private Context context;
@@ -191,7 +194,7 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
 
                 values.put(COLUMN_DATE , date);
                 values.put(COLUMN_META_USUARIO, 0);
-                values.put(COLUMN_META_FINAL,0);
+                values.put(COLUMN_META_FINAL,30);
                 values.put(COLUMN_PLUS, 0); // Valor por defecto
                 values.put(COLUMN_BENEFIT, 0); // Valor por defecto
                 values.put(COLUMN_CLASICA, 0); // Valor por defecto
@@ -303,6 +306,7 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
             ContentValues values = new ContentValues();
 
             String valUnit="";
+            String valUnitT="";
 //{"Plus", "Benefit", "Clasica", "Upgrade" ,"Garantia Extendida", "Chip Bait", "Chip Bait Renovacion", "Membresia de Salud"}
             switch (column){
 
@@ -334,20 +338,87 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
 
                 case "Plus_total":
                     valUnit="plus_u";
-                    values.put(COLUMN_PLUS_GANANCIA_TOTAL,Integer.parseInt(valor)* Integer.parseInt(this.readLastRowData(valUnit)));
+                    valUnitT="Plus_t";
+                    values.put(COLUMN_PLUS_GANANCIA_TOTAL,Integer.parseInt(this.readLastRowData(valUnitT))+ Integer.parseInt(this.readLastRowData(valUnit)));
                     break;
                 case "Benefit_total":
                     valUnit="benefit_u";
-                    values.put(COLUMN_BENEFIT_GANANCIA_TOTAL,Integer.parseInt(valor)* Integer.parseInt(this.readLastRowData(valUnit)));  break;
+                    valUnitT="Benefit_t";
+                    values.put(COLUMN_BENEFIT_GANANCIA_TOTAL,Integer.parseInt(this.readLastRowData(valUnitT))+ Integer.parseInt(this.readLastRowData(valUnit)));  break;
                 case "Clasica_total":
                     valUnit="clasica_u";
-                    values.put(COLUMN_CLASICA_GANANCIA_TOTAL,Integer.parseInt(valor)* Integer.parseInt(this.readLastRowData(valUnit)));
+                    valUnitT="Clasica_t";
+                    values.put(COLUMN_CLASICA_GANANCIA_TOTAL,Integer.parseInt(this.readLastRowData(valUnitT))+ Integer.parseInt(this.readLastRowData(valUnit)));
                     break;
                 case "Upgrade_total":
                     valUnit="upgrade_u";
-                    values.put(COLUMN_UPGRADE_GANANCIA_TOTAL,Integer.parseInt(valor)* Integer.parseInt(this.readLastRowData(valUnit)));
+                    valUnitT="Upgrade_t";
+                    values.put(COLUMN_UPGRADE_GANANCIA_TOTAL,Integer.parseInt(this.readLastRowData(valUnitT))+  Integer.parseInt(this.readLastRowData(valUnit)));
                     break;
                 case "Garantia Extendida_total":
+                    valUnit="ge_u";
+                    valUnitT="Garantia Extendida_t";
+                    values.put(COLUMN_GE_GANANCIA_TOTAL,Integer.parseInt(this.readLastRowData(valUnitT))+  Integer.parseInt(this.readLastRowData(valUnit)));
+
+                    break;
+
+                case "Plus_total_r":
+                    valUnit="plus_u";
+                    valUnitT="Plus_t";
+                    values.put(COLUMN_PLUS_GANANCIA_TOTAL,Integer.parseInt(this.readLastRowData(valUnitT))- Integer.parseInt(this.readLastRowData(valUnit)));
+                    break;
+                case "Benefit_total_r":
+                    valUnit="benefit_u";
+                    valUnitT="Benefit_t";
+                    values.put(COLUMN_BENEFIT_GANANCIA_TOTAL,Integer.parseInt(this.readLastRowData(valUnitT))- Integer.parseInt(this.readLastRowData(valUnit)));  break;
+                case "Clasica_total_r":
+                    valUnit="clasica_u";
+                    valUnitT="Clasica_t";
+                    values.put(COLUMN_CLASICA_GANANCIA_TOTAL,Integer.parseInt(this.readLastRowData(valUnitT))- Integer.parseInt(this.readLastRowData(valUnit)));
+                    break;
+                case "Upgrade_total_r":
+                    valUnit="upgrade_u";
+                    valUnitT="Upgrade_t";
+                    values.put(COLUMN_UPGRADE_GANANCIA_TOTAL,Integer.parseInt(this.readLastRowData(valUnitT))-  Integer.parseInt(this.readLastRowData(valUnit)));
+                    break;
+                case "Garantia Extendida_total_r":
+                    valUnit="ge_u";
+                    valUnitT="Garantia Extendida_t";
+                    values.put(COLUMN_GE_GANANCIA_TOTAL,Integer.parseInt(this.readLastRowData(valUnitT))-  Integer.parseInt(this.readLastRowData(valUnit)));
+
+                    break;
+                case "Chip Bait_total_r":
+                    valor = String.valueOf(0);
+                    values.put(COLUMN_BAIT, valor);
+                    break;
+                case "Chip Bait Renovacion_total_r":
+                    valor = String.valueOf(0);
+                    values.put(COLUMN_BAIT_B, valor);
+                    break;
+
+
+                case "Membresia de Salud_total_r":
+                    valor = String.valueOf(0);
+                    values.put(COLUMN_SALUD, valor);
+                    break;
+
+
+                case "Plus_total_Cambio":
+                    valUnit="plus_u";
+                    values.put(COLUMN_PLUS_GANANCIA_TOTAL,Integer.parseInt(valor)* Integer.parseInt(this.readLastRowData(valUnit)));
+                    break;
+                case "Benefit_total_Cambio":
+                    valUnit="benefit_u";
+                    values.put(COLUMN_BENEFIT_GANANCIA_TOTAL,Integer.parseInt(valor)* Integer.parseInt(this.readLastRowData(valUnit)));  break;
+                case "Clasica_total_Cambio":
+                    valUnit="clasica_u";
+                    values.put(COLUMN_CLASICA_GANANCIA_TOTAL,Integer.parseInt(valor)* Integer.parseInt(this.readLastRowData(valUnit)));
+                    break;
+                case "Upgrade_total_Cambio":
+                    valUnit="upgrade_u";
+                    values.put(COLUMN_UPGRADE_GANANCIA_TOTAL,Integer.parseInt(valor)* Integer.parseInt(this.readLastRowData(valUnit)));
+                    break;
+                case "Garantia Extendida_total_Cambio":
                     valUnit="ge_u";
                     values.put(COLUMN_GE_GANANCIA_TOTAL,Integer.parseInt(valor)* Integer.parseInt(this.readLastRowData(valUnit)));
 
@@ -378,6 +449,20 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
                     valor=String.valueOf(valTotal);
 
                     values.put(COLUMN_TOTAL, valor);
+                    break;
+
+
+                case "Plus_u":
+                    values.put(COLUMN_PLUS_GANANCIA_UNITARIA, valor);
+
+                    break;
+                case "Benefit_u":
+                    values.put(COLUMN_BENEFIT_GANANCIA_UNITARIA, valor);
+
+                    break;
+                case "Clasica_u":
+                    values.put(COLUMN_CLASICA_GANANCIA_UNITARIA, valor);
+
                     break;
 
                 case "meta":
@@ -594,6 +679,7 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
                     resInt = lastRow.getInt(val);
                     res=String.valueOf(resInt);
                     break;
+
 
 
                 default:
