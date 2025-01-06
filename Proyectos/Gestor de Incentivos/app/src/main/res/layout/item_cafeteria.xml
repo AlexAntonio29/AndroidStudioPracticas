@@ -12,27 +12,42 @@
             android:id="@+id/imageViewProduct"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_margin="20sp"
+            android:layout_marginRight="20sp"
+            android:layout_marginLeft="20sp"
             android:src="@drawable/ic_launcher_background"
+            android:layout_alignBottom="@id/imageViewCode"
            />
+
+
         <TextView
+
 
             android:id="@+id/tvTitleCafeteria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:text="Titulo"
             android:textColor="@color/azul_fuerte"
             android:layout_toEndOf="@id/imageViewProduct"
             android:layout_margin="20sp"
             android:textSize="20sp"
             android:hint="Titulo"
             />
+        <TextView
+            android:id="@+id/tvCodeItem"
+            android:text="Codigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitleCafeteria"
+            android:layout_toEndOf="@id/imageViewProduct"
+            />
 
         <ImageView
             android:layout_width="170dp"
             android:layout_height="100dp"
+            android:id="@+id/imageViewCode"
             android:layout_toEndOf="@id/imageViewProduct"
-            android:layout_alignTop="@id/tvTitleCafeteria"
+            android:layout_alignTop="@id/tvCodeItem"
             android:layout_marginTop="40dp"
             android:src="@drawable/ic_launcher_background"
 

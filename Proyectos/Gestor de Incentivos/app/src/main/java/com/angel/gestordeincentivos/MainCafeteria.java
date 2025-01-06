@@ -35,10 +35,17 @@ public class MainCafeteria extends AppCompatActivity {
 
 
 
-        String menu[]={"opcion1"};
+        String menu[]={"Hotdog+Refresco"};
 
         for (int i=0;i<menu.length;i++){
 
+            switch (i){
+                case 0:
+
+                    break;
+
+
+            }
 
 
 

@@ -111,6 +111,9 @@ public class IngresosActivity {
         String COLUMN_UPGRADE_GANANCIA_TOTAL = "upgrade_ganancia_total";
          String COLUMN_GE_GANANCIA_TOTAL = "ge_ganancia_total";
             String COLUMN_NO_SEMANA = "no_semana";
+        String COLUMN_AFILIACION ="afiliacion";
+       String COLUMN_AFILIACION_GANANCIA_TOTAL = "afiliacion_ganancia_total";
+
         // private static final String COLUMN_ID_SEMANA = "id_semana";
          String COLUMN_TOTAL = "total";
 
@@ -121,6 +124,22 @@ public class IngresosActivity {
         switch (i){
 
             case 1:
+
+                val= (cursor.getColumnIndex(COLUMN_AFILIACION));
+                resInt = cursor.getInt(val);
+                sumCantidadTotal+=resInt;
+                res=String.valueOf(resInt);
+                cantidad=res;
+
+                val= (cursor.getColumnIndex(COLUMN_AFILIACION_GANANCIA_TOTAL));
+                resInt = cursor.getInt(val);
+                sumDineroRenovacion+=resInt;
+                res=String.valueOf(resInt);
+                total=res;
+
+
+                break;
+            case 2:
 
                 val= (cursor.getColumnIndex(COLUMN_PLUS));
                 resInt = cursor.getInt(val);
@@ -136,7 +155,7 @@ public class IngresosActivity {
 
 
                 break;
-            case 2:
+            case 3:
                 val= (cursor.getColumnIndex(COLUMN_BENEFIT));
                 resInt = cursor.getInt(val);
                 sumCantidadTotal+=resInt;
@@ -149,7 +168,7 @@ public class IngresosActivity {
                 res=String.valueOf(resInt);
                 total=res;
                 break;
-            case 3:
+            case 4:
                 val= (cursor.getColumnIndex(COLUMN_CLASICA));
                 resInt = cursor.getInt(val);
                 sumCantidadTotal+=resInt;
@@ -162,7 +181,7 @@ public class IngresosActivity {
                 res=String.valueOf(resInt);
                 total=res;
                 break;
-            case 4:
+            case 5:
                 val= (cursor.getColumnIndex(COLUMN_UPGRADE));
                 resInt = cursor.getInt(val);
                 res=String.valueOf(resInt);
@@ -173,7 +192,7 @@ public class IngresosActivity {
                 res=String.valueOf(resInt);
                 total=res;
                 break;
-            case 5:
+            case 6:
                 val= (cursor.getColumnIndex(COLUMN_GE));
                 resInt = cursor.getInt(val);
                 res=String.valueOf(resInt);
@@ -184,7 +203,7 @@ public class IngresosActivity {
                 res=String.valueOf(resInt);
                 total=res;
                 break;
-            case 6:
+            case 7:
                 val= (cursor.getColumnIndex(COLUMN_BAIT));
                 resInt = cursor.getInt(val);
                 res=String.valueOf(resInt);
@@ -193,7 +212,7 @@ public class IngresosActivity {
 
                 total="0";
                 break;
-            case 7:
+            case 8:
                 val= (cursor.getColumnIndex(COLUMN_BAIT_B));
                 resInt = cursor.getInt(val);
                 res=String.valueOf(resInt);
@@ -202,7 +221,7 @@ public class IngresosActivity {
 
                 total="0";
                 break;
-            case 8:
+            case 9:
 
 
 
@@ -242,7 +261,7 @@ public class IngresosActivity {
         tvMont=rootView.findViewById(R.id.tvMonth);
         tvCantidadT=rootView.findViewById(R.id.tvCantidadTotalDia);
         tvDineroRenovacionDia=rootView.findViewById(R.id.tvDineroTotalRenovacion);
-        String[] lista = {"","Plus", "Benefit", "Clasica","Upgrade", "Garantia Extendida",
+        String[] lista = {"","Afiliacion","Plus", "Benefit", "Clasica","Upgrade", "Garantia Extendida",
                 "Chip Bait", "Chip Bait Renovacion", "Membresia de Salud"};
         tvMont.setText(new getCurrentDate().getMonthDateString());
         tvDay.setText(new getCurrentDate().getDayDateString());

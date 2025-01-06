@@ -53,6 +53,8 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
 
     //ASIGNACION DE NUEVA VARIABLE AFILIACION
     private static final String COLUMN_AFILIACION ="afiliacion";
+    private static final String COLUMN_AFILIACION_GANANCIA_TOTAL = "afiliacion_ganancia_total";
+
     private static final String COLUMN_TOTAL = "total";
 
     private Context context;
@@ -101,7 +103,9 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
                 + COLUMN_UPGRADE_GANANCIA_TOTAL + " INTEGER DEFAULT 0,"     // Valor por defecto
                 + COLUMN_GE_GANANCIA_TOTAL + " INTEGER DEFAULT 0,"
                 + COLUMN_NO_SEMANA + " INTEGER DEFAULT 0,"  // Valor por defecto
-                + COLUMN_TOTAL + " INTEGER DEFAULT 0"
+                + COLUMN_TOTAL + " INTEGER DEFAULT 0, "
+                + COLUMN_AFILIACION + " INTEGER DEFAULT 0," //ACTUALIZACION NUEVA COLUMNA
+                + COLUMN_AFILIACION_GANANCIA_TOTAL + " INTEGER DEFAULT 0"
 
                 // + COLUMN_ID_SEMANA + " INTEGER DEFAULT 0"
 
@@ -162,6 +166,10 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
     }
 
 
+    public String getTableIncentiveWeekString(){
+        return TABLE_INCENTIVE_WEEK;
+    }
+
     private boolean doesTableExist(SQLiteDatabase db, String tableName) {
         Cursor cursor = db.rawQuery(
                 "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
@@ -215,6 +223,9 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
                 values.put(COLUMN_GE_GANANCIA_TOTAL, 0); // Valor por defecto
                 values.put(COLUMN_NO_SEMANA, num_semana);
                 values.put(COLUMN_TOTAL, 0);
+                values.put(COLUMN_AFILIACION, 0);
+                values.put(COLUMN_AFILIACION_GANANCIA_TOTAL,0);
+
 
                 // Insertar fila en la base de datos
                 db.insert(TABLE_INCENTIVE_WEEK, null, values);
@@ -274,7 +285,7 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
 
     public Cursor getLastRow() {
         SQLiteDatabase db=this.getWritableDatabase();
-        boolean p= doesTableExist(db,TABLE_INCENTIVE_WEEK);
+
 
 
         // Consulta para obtener la última fila
@@ -309,6 +320,9 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
             String valUnitT="";
 //{"Plus", "Benefit", "Clasica", "Upgrade" ,"Garantia Extendida", "Chip Bait", "Chip Bait Renovacion", "Membresia de Salud"}
             switch (column){
+                case "Afiliacion":  //ACTUALIZACION
+                    values.put(COLUMN_AFILIACION, valor);//ACTUALIZACION
+                    break;
 
                 case "Plus":
                     values.put(COLUMN_PLUS, valor);
@@ -336,6 +350,13 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
                     values.put(COLUMN_SALUD, valor);
                     break;
 
+                case "Afiliacion_total":
+                    valUnitT="Afiliacion_t";
+                    values.put(COLUMN_AFILIACION_GANANCIA_TOTAL,Integer.parseInt(this.readLastRowData(valUnitT))+ 5);
+
+
+                    break;
+
                 case "Plus_total":
                     valUnit="plus_u";
                     valUnitT="Plus_t";
@@ -359,6 +380,12 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
                     valUnit="ge_u";
                     valUnitT="Garantia Extendida_t";
                     values.put(COLUMN_GE_GANANCIA_TOTAL,Integer.parseInt(this.readLastRowData(valUnitT))+  Integer.parseInt(this.readLastRowData(valUnit)));
+
+                    break;
+                case "Afiliacion_total_r":
+                    valUnitT="Afiliacion_t";
+                    values.put(COLUMN_AFILIACION_GANANCIA_TOTAL,Integer.parseInt(this.readLastRowData(valUnitT))-5);
+
 
                     break;
 
@@ -443,9 +470,9 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
                     int valBenefit= Integer.parseInt(this.readLastRowData("Benefit_t"));
                     int valClasica= Integer.parseInt(this.readLastRowData("Clasica_t"));
                     int valUpgrade= Integer.parseInt(this.readLastRowData("Upgrade_t"));
-                    //int valGe= Integer.parseInt(this.readLastRowData("Garantia Extendida_t"));
+                    int valAfil= Integer.parseInt(this.readLastRowData("Afiliacion_t"));
 
-                    int valTotal= valPlus+valBenefit+valClasica+valUpgrade;//+valGe;
+                    int valTotal= valPlus+valBenefit+valClasica+valUpgrade+valAfil;
                     valor=String.valueOf(valTotal);
 
                     values.put(COLUMN_TOTAL, valor);
@@ -472,12 +499,13 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
                     break;
 
                 case "meta_usuario":
+                    int valAfil_C= Integer.parseInt(this.readLastRowData("Afiliacion"));
                     int valPlus_C= Integer.parseInt(this.readLastRowData("Plus"));
                     int valBenefit_C= Integer.parseInt(this.readLastRowData("Benefit"));
                     int valClasica_C= Integer.parseInt(this.readLastRowData("Clasica"));
 
 
-                    int valTotal_C= valPlus_C+valBenefit_C+valClasica_C;
+                    int valTotal_C= valPlus_C+valBenefit_C+valClasica_C+valAfil_C;
                     valor=String.valueOf(valTotal_C);
                     values.put(COLUMN_META_USUARIO,valor);
 
@@ -528,6 +556,11 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
                     res=String.valueOf(resInt);
                     break;
 
+                case "Afiliacion":
+                    val= (lastRow.getColumnIndex(COLUMN_AFILIACION));
+                    resInt = lastRow.getInt(val);
+                    res=String.valueOf(resInt);
+                    break;
                 case "Plus":
                     val= (lastRow.getColumnIndex(COLUMN_PLUS));
                     resInt = lastRow.getInt(val);
@@ -571,7 +604,11 @@ public class DataBaseIncentiveWeek extends SQLiteOpenHelper {
                     break;
 
                 //Aqui iran los demas ..
-
+                case "Afiliacion_t":
+                    val= (lastRow.getColumnIndex(COLUMN_AFILIACION_GANANCIA_TOTAL));
+                    resInt = lastRow.getInt(val);
+                    res=String.valueOf(resInt);
+                    break;
                 case "Plus_t":
                     val= (lastRow.getColumnIndex(COLUMN_PLUS_GANANCIA_TOTAL));
                     resInt = lastRow.getInt(val);

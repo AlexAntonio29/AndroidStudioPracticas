@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.angel.calculadora"
+    namespace = "com.angel.calculadoraNew"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.angel.calculadora"
+        applicationId = "com.angel.calculadoraNew"
         minSdk = 29
         targetSdk = 34
         versionCode = 1

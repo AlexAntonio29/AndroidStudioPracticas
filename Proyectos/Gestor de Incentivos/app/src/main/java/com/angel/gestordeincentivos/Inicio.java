@@ -104,7 +104,7 @@ public class Inicio {
 
 
 
-        String[] lista = {"Plus", "Benefit", "Clasica", "Upgrade" ,"Garantia Extendida", "Chip Bait", "Chip Bait Renovacion", "Membresia de Salud"};
+        String[] lista = {"Afiliacion","Plus", "Benefit", "Clasica", "Upgrade" ,"Garantia Extendida", "Chip Bait", "Chip Bait Renovacion", "Membresia de Salud"};
         mperent = rootView.findViewById(R.id.llContenedor);//llamo al layout de inicio que aparecera como layout secundario
 
 
@@ -127,6 +127,10 @@ public class Inicio {
             TextView tvCount = myview.findViewById(R.id.tvCount);
 
             switch (texto) {
+                case "Afiliacion":
+                    Mimage.setImageResource(R.drawable.afiliacion);
+                    tvCount.setText(dbDay.readLastRowData("Afiliacion"));
+                    break;
                 case "Plus":
                     Mimage.setImageResource(R.drawable.plus);
                     tvCount.setText(dbDay.readLastRowData("plus"));

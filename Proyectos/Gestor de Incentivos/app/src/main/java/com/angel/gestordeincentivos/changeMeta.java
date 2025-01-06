@@ -1,13 +1,12 @@
 package com.angel.gestordeincentivos;
+import consultas.weekSearch;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,10 +21,13 @@ public class changeMeta extends AppCompatActivity {
     EditText etChange;
 
 
-    public void changeAllMetas(){
+    public void changeAllMetas(Context context, DataBaseIncentiveWeek dbWeek){
 
         int proMeta=20;
-
+///llamar a weekSearch
+        DataBaseIncentiveDay dbDay= new DataBaseIncentiveDay(context);
+       // weekSearch change= new weekSearch(context, dbDay, dbWeek);
+       // change.cambiarMetas();
 
 
 
@@ -61,7 +63,7 @@ public class changeMeta extends AppCompatActivity {
                 if (!textModificado.equals("0")){
                     dbWeek.updateLastRow("meta", textModificado);
                     //SE MODIFICARA TODAS LAS RENOVACIONES QUE NO PASEN DE ESA FECHA
-                     changeAllMetas();
+                     changeAllMetas(context, dbWeek);
                     //TOAST META MODIFICADA
                     Toast.makeText(context, "Meta modificada", Toast.LENGTH_SHORT).show();
 
