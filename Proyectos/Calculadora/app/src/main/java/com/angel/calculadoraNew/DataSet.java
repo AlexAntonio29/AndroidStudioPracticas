@@ -1,5 +1,6 @@
 package com.angel.calculadoraNew;
 
+import android.bluetooth.le.ScanSettings;
 import android.content.Context;
 import android.widget.Button;
 import android.widget.TextView;
@@ -7,13 +8,15 @@ import android.widget.Toast;
 
 public class DataSet {
     Button b;
-
-    public DataSet() {
-
+        Context m;
+    public DataSet(Context context) {
+        this.m=context;
     }
 
-    DiscreteMaths operacion = new DiscreteMaths();
-    MainActivity m;
+    DiscreteMaths operacion = new DiscreteMaths(m);
+   // MainActivity m;
+
+
 
     public DataSet(Button b) {
         this.b = b;
@@ -25,13 +28,35 @@ public class DataSet {
         return b;
     }
 
-    public MainActivity getM() {
-        return m;
+
+    public String push(TextView tvOperation, String string){
+
+        switch (string){
+
+            case "modulo": return bModulo(tvOperation);
+            case "division": return bDivision(tvOperation);
+            case "multiplicacion": return bMult(tvOperation);
+            case "suma": return bMas(tvOperation);
+            case "resta": return  bMenos(tvOperation);
+            case "masMenos": return bMasMenos(tvOperation);
+            case "9": return b9(tvOperation);
+            case "8": return b8(tvOperation);
+            case "7": return b7(tvOperation);
+            case "6": return b6(tvOperation);
+            case "5": return b5(tvOperation);
+            case "4": return b4(tvOperation);
+            case "3": return b3(tvOperation);
+            case "2": return b2(tvOperation);
+            case "1": return b1(tvOperation);
+            case "0": return b0(tvOperation);
+            default: return "";
+        }
+
+
+
     }
 
-    public void setM(MainActivity m) {
-        this.m = m;
-    }
+
 
     public String Acumulacion(String s) {
         String n = "";
@@ -102,6 +127,11 @@ char caracterAnterior = 0;
 
 
     };*/
+
+
+
+
+
 
     public String bModulo(TextView tv) {
         String text = (String) tv.getText().toString();

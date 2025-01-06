@@ -1,10 +1,17 @@
 package com.angel.calculadoraNew;
 
+import android.content.Context;
 import android.widget.TextView;
 
 public class Delete extends DiscreteMaths{
 
-    public Delete(){}
+
+    public Delete(Context context){
+
+        super(context);
+
+
+    }
 
     public String delete(TextView n){
         String numbers= ( String) n.getText().toString();

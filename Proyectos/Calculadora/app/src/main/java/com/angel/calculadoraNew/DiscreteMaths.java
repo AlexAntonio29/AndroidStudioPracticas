@@ -10,18 +10,16 @@ public class DiscreteMaths {
 
 
     //public static ArrayList<Double> numeros = new ArrayList<>();
+        Context context;
 
-
-    public DiscreteMaths() {
-
+    public DiscreteMaths(Context context) {
+this.context=context;
     }
 
 
-    public void mostrarToast(Context context, String mensaje) {
-        Toast.makeText(context, mensaje, Toast.LENGTH_SHORT).show();
-    }
 
-    public String operation(TextView tv, MainActivity m) {
+
+    public String operation(TextView tv) {
         ArrayList<String> signos = new ArrayList<>();
         boolean p=true;//se usa para el modulo para que no repita el procesos de modulo
         ArrayList<String> numeros = new ArrayList<>();
@@ -74,7 +72,7 @@ public class DiscreteMaths {
 
                     else {
                         p=false;
-                        editNum = division(n, numeros.get(i), m);
+                        editNum = division(n, numeros.get(i), context);
                     }
                     break;
                 case "+":
@@ -108,7 +106,7 @@ public class DiscreteMaths {
 
                if (p){
                    p=false;
-                    SumaReales.add(modulo(n, m));
+                    SumaReales.add(modulo(n, context));
 
                     break;
                 }else {
@@ -125,11 +123,11 @@ public class DiscreteMaths {
             if (esNumero(UltimoCaracter)) {
                 if (i == signos.size() - 1) {
                     SumaReales.add(editNum);
-                   // mostrarToast(m, editNum);
+                   // mostrarToast(context, editNum);
                 } else {
 
                     n = editNum;
-                  //  mostrarToast(m, editNum);
+                  //  mostrarToast(context, editNum);
                 }
 
 
@@ -144,7 +142,7 @@ public class DiscreteMaths {
 
         }
         String SumT = "0";
-        // mostrarToast(m,(SumT));
+        // mostrarToast(context,(SumT));
         for (String sumaT : SumaReales) {
             SumT = String.valueOf(Double.parseDouble(SumT) + Double.parseDouble(sumaT));
 
@@ -158,7 +156,7 @@ public class DiscreteMaths {
         char Usigno = signo[signo.length - 1];
         if (Usigno == '%'&&p) {
 
-            SumT=modulo(SumT,m);
+            SumT=modulo(SumT,context);
 
             return SumT;
         }
@@ -169,15 +167,7 @@ public class DiscreteMaths {
     }
 
 
-    public boolean esNumero(char str) {
 
-        try {
-            Double.parseDouble(String.valueOf((str)));
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
 
     public String suma(String n1) {
         for (int i = 0; i < n1.length(); i++) {
@@ -220,7 +210,7 @@ public class DiscreteMaths {
         return String.valueOf(resultadoRedondeado);
     }
 
-    public String division(String n1, String n2, MainActivity getApplicationContext) {
+    public String division(String n1, String n2, Context getApplicationContext) {
         System.out.println(n2);
 
         if (Double.parseDouble(n2) == 0) {
@@ -258,6 +248,24 @@ public class DiscreteMaths {
         return String.valueOf(r);
 
     }
+
+
+
+    //subMetodos
+    public boolean esNumero(char str) {
+
+        try {
+            Double.parseDouble(String.valueOf((str)));
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public void mostrarToast(Context context, String mensaje) {
+        Toast.makeText(context, mensaje, Toast.LENGTH_SHORT).show();
+    }
+
 
 
 }
