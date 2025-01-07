@@ -39,6 +39,7 @@ public class DataSet {
             case "suma": return bMas(tvOperation);
             case "resta": return  bMenos(tvOperation);
             case "masMenos": return bMasMenos(tvOperation);
+            case "punto": return bPunto(tvOperation);
             case "9": return b9(tvOperation);
             case "8": return b8(tvOperation);
             case "7": return b7(tvOperation);

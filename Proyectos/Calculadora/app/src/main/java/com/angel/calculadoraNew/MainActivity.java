@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
             b1, b2, b3, bMas, bMasMenos, b0, bPunto, bIgual;
     public TextView tvOperation, tvR;
     public ImageButton bDelete;
-    public Vibrator vibrator= (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+    public Vibrator vibrator;
     TextView textView;
     //tiempo vibracion
     public int timeVibration=3;
@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //OTRAS VARIABLES
+
+        vibrator= (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         //para tener el contexto o la vista en este caso el MainActivity
         Context context=this;
         //es el metodo para la obtencion de datos que se veran reflejados en la calculadora
@@ -90,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         bc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibrator.vibrate(25);
+                vibrator.vibrate(timeVibration+10);
                 tvOperation.setText(dataSet.bC());
                 tvR.setText(dataSet.bC());
 
@@ -110,8 +112,8 @@ public class MainActivity extends AppCompatActivity {
         bModulo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.bModulo(tvOperation));
-                change(tvOperation, "modulo",context,dataSet);
+                //tvOperation.setText(tvOperation.getText().toString() + dataSet.bModulo(tvOperation));
+                change(tvOperation, "modulo",context,dataSet, vibrator);
 
             }
         });
@@ -119,8 +121,8 @@ public class MainActivity extends AppCompatActivity {
         bDivision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.bDivision(tvOperation));
-                change(tvOperation,"division",context,dataSet);
+               // tvOperation.setText(tvOperation.getText().toString() + dataSet.bDivision(tvOperation));
+                change(tvOperation,"division",context,dataSet, vibrator);
             }
         });
 
@@ -128,40 +130,40 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //enviar los datos a la vista de tvOperation
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.b7(tvOperation));
+              //  tvOperation.setText(tvOperation.getText().toString() + dataSet.b7(tvOperation));
 
-                change(tvOperation, "7",context,dataSet);
+                change(tvOperation, "7",context,dataSet, vibrator);
             }
         });
 
         b8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.b8(tvOperation));
-                change(tvOperation, "8",context,dataSet);
+               // tvOperation.setText(tvOperation.getText().toString() + dataSet.b8(tvOperation));
+                change(tvOperation, "8",context,dataSet, vibrator);
             }
         });
 
         b9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.b9(tvOperation));
-                change(tvOperation, "9",context,dataSet);
+              //  tvOperation.setText(tvOperation.getText().toString() + dataSet.b9(tvOperation));
+                change(tvOperation, "9",context,dataSet, vibrator);
             }
         });
         bMult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.bMult(tvOperation));
-                change(tvOperation, "multiplicacion",context,dataSet);
+               // tvOperation.setText(tvOperation.getText().toString() + dataSet.bMult(tvOperation));
+                change(tvOperation, "multiplicacion",context,dataSet, vibrator);
             }
         });
 
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.b4(tvOperation));
-                change(tvOperation, "4",context,dataSet);
+                //tvOperation.setText(tvOperation.getText().toString() + dataSet.b4(tvOperation));
+                change(tvOperation, "4",context,dataSet, vibrator);
             }
 
         });
@@ -169,32 +171,32 @@ public class MainActivity extends AppCompatActivity {
         b5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.b5(tvOperation));
-                change(tvOperation, "5",context,dataSet);
+                //tvOperation.setText(tvOperation.getText().toString() + dataSet.b5(tvOperation));
+                change(tvOperation, "5",context,dataSet, vibrator);
             }
         });
 
         b6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.b6(tvOperation));
-                change(tvOperation, "6",context,dataSet);
+               // tvOperation.setText(tvOperation.getText().toString() + dataSet.b6(tvOperation));
+                change(tvOperation, "6",context,dataSet, vibrator);
             }
         });
 
         bMenos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.bMenos(tvOperation));
-                change(tvOperation, "resta",context,dataSet);
+              //  tvOperation.setText(tvOperation.getText().toString() + dataSet.bMenos(tvOperation));
+                change(tvOperation, "resta",context,dataSet, vibrator);
             }
         });
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.b1(tvOperation));
-                change(tvOperation, "1",context,dataSet);
+              //  tvOperation.setText(tvOperation.getText().toString() + dataSet.b1(tvOperation));
+                change(tvOperation, "1",context,dataSet, vibrator);
             }
 
 
@@ -202,39 +204,39 @@ public class MainActivity extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.b2(tvOperation));
-                change(tvOperation, "2",context,dataSet);
+                //tvOperation.setText(tvOperation.getText().toString() + dataSet.b2(tvOperation));
+                change(tvOperation, "2",context,dataSet, vibrator);
             }
         });
 
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.b3(tvOperation));
-                change(tvOperation, "3",context,dataSet);
+               // tvOperation.setText(tvOperation.getText().toString() + dataSet.b3(tvOperation));
+                change(tvOperation, "3",context,dataSet, vibrator);
             }
         });
 
         bMas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.bMas(tvOperation));
+                //tvOperation.setText(tvOperation.getText().toString() + dataSet.bMas(tvOperation));
 
-                change(tvOperation, "suma",context,dataSet);
+                change(tvOperation, "suma",context,dataSet, vibrator);
             }
         });
         bMasMenos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.bMasMenos(tvOperation));
-                change(tvOperation, "masMenos",context,dataSet);
+              //  tvOperation.setText(tvOperation.getText().toString() + dataSet.bMasMenos(tvOperation));
+                change(tvOperation, "masMenos",context,dataSet, vibrator);
             }
         });
         b0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvOperation.setText(tvOperation.getText().toString() + dataSet.b0(tvOperation));
-                change(tvOperation, "0",context,dataSet);
+              //  tvOperation.setText(tvOperation.getText().toString() + dataSet.b0(tvOperation));
+                change(tvOperation, "0",context,dataSet, vibrator);
             }
         });
         bPunto.setOnClickListener(new View.OnClickListener() {
@@ -242,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                change(tvOperation, "",context,dataSet);
+                change(tvOperation, "punto",context,dataSet, vibrator);
             }
         });
 
@@ -258,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Este metodo hace el cambio del TextView para actualizar el tvR
-    public void change(TextView tvOperation, String string, Context context, DataSet dataSet) {
+    public void change(TextView tvOperation, String string, Context context, DataSet dataSet, Vibrator vibrator) {
 
         tvOperation.setText(tvOperation.getText().toString() + dataSet.push(tvOperation, string));
         colorearSigno(context);
