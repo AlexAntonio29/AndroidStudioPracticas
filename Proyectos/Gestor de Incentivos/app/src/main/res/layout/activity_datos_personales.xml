@@ -28,9 +28,20 @@
 
             />
 
+        <ImageButton
+            android:id="@+id/ibEditCamera"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignRight="@+id/imageCuenta"
+            android:layout_alignBottom="@+id/imageCuenta"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/image_circle_blue"
+            android:src="@drawable/baseline_camera_alt_24"
+            />
+
     </RelativeLayout>
 <ScrollView
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 <LinearLayout
     android:id="@+id/llContenedorDatosPersonales"
