@@ -9,6 +9,10 @@
     <string name="guardar">guardar</string>
     <string name="ant_dia">Dia anterior</string>
     <string name="pos_dia">Dia posterior</string>
+    <string name="personalDate_name">titulo</string>
+    <string name="buttonGuardar">guardar</string>
+    <string name="buttonPrevio">Regresar</string>
+
 
 
 

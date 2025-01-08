@@ -70,6 +70,11 @@ public class CuentaActivity {
                         Intent intent = new Intent(context, changeMeta.class);
                         context.startActivity(intent);
                     }
+                    if(lista[ItemI].equals("Datos Personales")){
+                        Intent intent = new Intent(context, PersonalDataActivity.class);
+                        context.startActivity(intent);
+                    }
+
 
                 }
             });

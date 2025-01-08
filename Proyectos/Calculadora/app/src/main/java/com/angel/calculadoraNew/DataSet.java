@@ -57,8 +57,6 @@ public class DataSet {
 
     }
 
-
-
     public String Acumulacion(String s) {
         String n = "";
         for (int i = 0; i < s.length(); i++) {
@@ -133,7 +131,7 @@ char caracterAnterior = 0;
 
 
 
-
+//EVALUACION DE BOTONES RETURNS
     public String bModulo(TextView tv) {
         String text = (String) tv.getText().toString();
 
