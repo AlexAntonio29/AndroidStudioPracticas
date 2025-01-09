@@ -25,6 +25,9 @@
             android:layout_centerVertical="true"
             android:background="@drawable/image_circle"
             android:src="@drawable/baseline_account"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/app_name"
+
 
             />
 
